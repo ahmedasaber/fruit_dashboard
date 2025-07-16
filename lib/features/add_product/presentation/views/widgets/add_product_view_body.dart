@@ -39,7 +39,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   code = value!.toLowerCase();
                 },
                 hintText: 'Product Code',
-                textInputType: TextInputType.number,
+                textInputType: TextInputType.text,
               ),
               SizedBox(height: 16),
               CustomTextFormField(
