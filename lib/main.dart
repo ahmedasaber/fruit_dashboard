@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fruit_dashboard/core/helper_functions/on_generate_routes.dart';
 import 'package:fruit_dashboard/core/utils/app_colors.dart';
-import 'package:fruit_dashboard/features/presentation/views/dashboard_view.dart';
+import 'package:fruit_dashboard/features/dashboard/presentation/views/dashboard_view.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
+
   runApp(const MyApp());
 }
 
