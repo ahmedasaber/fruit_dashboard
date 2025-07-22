@@ -8,6 +8,7 @@ import 'package:fruit_dashboard/core/widgets/custom_checkedbox.dart';
 import 'package:fruit_dashboard/core/widgets/custom_image_field.dart';
 import 'package:fruit_dashboard/core/widgets/custom_text_field.dart';
 import 'package:fruit_dashboard/core/widgets/show_error.dart';
+import 'package:fruit_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -96,6 +97,14 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                     if(_formKey.currentState!.validate()){
                       _formKey.currentState!.save();
                       // TODO write code that add the data in the database
+                      AddProductInputEntity input = AddProductInputEntity(
+                          name: name,
+                          code: code,
+                          description: description,
+                          price: price,
+                          image: image!,
+                          isFeatured: isChecked
+                      );
                     }else{
                       autoValidateMode = AutovalidateMode.always;
                       setState(() {});
