@@ -151,6 +151,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                           isOrganic: isOrganic,
                           numOfCalories: numOfCalories as int,
                           unitAmount: unitAmount as int,
+                          reviews: [],
                       );
                     }else{
                       autoValidateMode = AutovalidateMode.always;

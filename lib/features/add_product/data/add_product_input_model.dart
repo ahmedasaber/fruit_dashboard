@@ -13,6 +13,7 @@ class AddProductInputModel extends AddProductInputEntity {
     required super.numOfCalories,
     required super.unitAmount,
     required super.isOrganic,
+    required super.reviews,
   });
 
   factory AddProductInputModel.fromEntity(AddProductInputEntity entity) {
@@ -28,21 +29,23 @@ class AddProductInputModel extends AddProductInputEntity {
       numOfCalories: entity.numOfCalories,
       unitAmount: entity.unitAmount,
       isOrganic: entity.isOrganic,
+      reviews: entity.reviews,
     );
   }
 
   toMap() {
     return {
-      'name': super.name,
-      'code': super.code,
-      'description': super.description,
-      'price': super.price,
-      'isFeatured': super.isFeatured,
-      'imageUrl': super.imageUrl,
-      'expirationsMonth': super.expirationsMonth,
-      'isOrganic': super.isOrganic,
-      'numOfCalories': super.numOfCalories,
-      'unitAmount': super.unitAmount,
+      'name': name,
+      'code': code,
+      'description': description,
+      'price': price,
+      'isFeatured': isFeatured,
+      'imageUrl': imageUrl,
+      'expirationsMonth': expirationsMonth,
+      'isOrganic': isOrganic,
+      'numOfCalories': numOfCalories,
+      'unitAmount': unitAmount,
+      'reviews': reviews.map((e)=>e.toMap()).toList(),
     };
   }
 }
