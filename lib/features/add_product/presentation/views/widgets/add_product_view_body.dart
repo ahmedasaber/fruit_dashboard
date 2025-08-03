@@ -21,9 +21,10 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   late String name, code, description;
-  late num price;
+  late num price, expirationsMonths, numOfCalories, unitAmount;
   File? image;
-  bool isChecked = false;
+  bool isFeatured = false;
+  bool isOrganic = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +62,30 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               SizedBox(height: 16),
               CustomTextFormField(
                 onSaved: (value){
+                  expirationsMonths = num.parse(value!);
+                },
+                hintText: 'expiration months',
+                textInputType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value){
+                  numOfCalories = num.parse(value!);
+                },
+                hintText: 'Number of Calories',
+                textInputType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value){
+                  unitAmount = num.parse(value!);
+                },
+                hintText: 'Unit Amount',
+                textInputType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value){
                   description = value!;
                 },
                 hintText: 'Product Description',
@@ -77,9 +102,27 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   ),
                   SizedBox(width: 25,),
                   CustomCheckedBox(
-                    isChecked: isChecked,
+                    isChecked: isFeatured,
                     onChanged: (bool value) {
-                      isChecked = value;
+                      isFeatured = value;
+                      setState(() {});
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Is Organic Item?',
+                    style: TextStyles.semiBold16.copyWith(color: AppColors.primaryColor),
+                  ),
+                  SizedBox(width: 25,),
+                  CustomCheckedBox(
+                    isChecked: isOrganic,
+                    onChanged: (bool value) {
+                      isOrganic = value;
                       setState(() {});
                     },
                   ),
@@ -103,7 +146,11 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                           description: description,
                           price: price,
                           image: image!,
-                          isFeatured: isChecked
+                          isFeatured: isFeatured,
+                          expirationsMonth: expirationsMonths as int,
+                          isOrganic: isOrganic,
+                          numOfCalories: numOfCalories as int,
+                          unitAmount: unitAmount as int,
                       );
                     }else{
                       autoValidateMode = AutovalidateMode.always;
