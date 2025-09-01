@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_dashboard/core/utils/app_colors.dart';
 import 'package:fruit_dashboard/core/utils/app_text_style.dart';
 import 'package:fruit_dashboard/core/widgets/custom_button.dart';
@@ -9,6 +9,8 @@ import 'package:fruit_dashboard/core/widgets/custom_image_field.dart';
 import 'package:fruit_dashboard/core/widgets/custom_text_field.dart';
 import 'package:fruit_dashboard/core/widgets/show_error.dart';
 import 'package:fruit_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+
+import '../../cubit/add_product_cubit.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -139,7 +141,6 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if(image!=null){
                     if(_formKey.currentState!.validate()){
                       _formKey.currentState!.save();
-                      // TODO write code that add the data in the database
                       AddProductInputEntity input = AddProductInputEntity(
                           name: name,
                           code: code,
@@ -153,6 +154,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                           unitAmount: unitAmount as int,
                           reviews: [],
                       );
+                      context.read<AddProductCubit>().addProduct(input);
                     }else{
                       autoValidateMode = AutovalidateMode.always;
                       setState(() {});
@@ -162,6 +164,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   }
                 },
               ),
+              SizedBox(height: 16),
             ],
           ),
         ),

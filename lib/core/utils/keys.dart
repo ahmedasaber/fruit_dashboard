@@ -1,0 +1,3 @@
+const kSupaBaseUrl = 'https://whypfavocurrvbooqyxz.supabase.co';
+const kSupaBaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoeXBmYXZvY3VycnZib29xeXh6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MjU5Mzk5NSwiZXhwIjoyMDY4MTY5OTk1fQ.ZfJ-dIy1NvcZJvONYPLCbjCMQfcaIx0zX7ZDDdet5rk';
+const kFruitsImagesBucket = 'fruits_images';

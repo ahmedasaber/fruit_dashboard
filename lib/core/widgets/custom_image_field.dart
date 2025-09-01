@@ -32,7 +32,7 @@ class _ImageFieldState extends State<ImageField> {
               imageFile = File(image.path);
               widget.onFileChanged(imageFile);
             }
-            log(image!.name);
+            log(imageFile!.path);
           } on Exception catch (e) {
             log(e.toString());
           }finally {
