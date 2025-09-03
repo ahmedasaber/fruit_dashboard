@@ -5,7 +5,8 @@ class ReviewModel extends ReviewEntity {
     required super.name,
     required super.imageProfile,
     required super.rating,
-    required super.ratingDescription,
+    required super.date,
+    required super.reviewDescription,
   });
 
   factory ReviewModel.fromEntity(ReviewEntity reviewEntity){
@@ -13,7 +14,8 @@ class ReviewModel extends ReviewEntity {
       name: reviewEntity.name,
       imageProfile: reviewEntity.imageProfile,
       rating: reviewEntity.rating,
-      ratingDescription: reviewEntity.ratingDescription
+      date: reviewEntity.date,
+      reviewDescription: reviewEntity.reviewDescription
     );
   }
 
@@ -22,7 +24,8 @@ class ReviewModel extends ReviewEntity {
       name: jsonData['name'],
       imageProfile: jsonData['imageProfile'],
       rating: jsonData['rating'],
-      ratingDescription:jsonData['ratingDescription']
+      date: jsonData['date'],
+        reviewDescription:jsonData['ratingDescription']
     );
   }
 
@@ -31,7 +34,8 @@ class ReviewModel extends ReviewEntity {
       'name': name,
       'imageProfile': imageProfile,
       'rating': rating,
-      'ratingDescription': ratingDescription,
+      'date': date,
+      'ratingDescription': reviewDescription,
     };
   }
 }

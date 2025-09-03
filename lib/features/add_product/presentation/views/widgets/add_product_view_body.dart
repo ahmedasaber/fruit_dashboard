@@ -8,7 +8,8 @@ import 'package:fruit_dashboard/core/widgets/custom_checkedbox.dart';
 import 'package:fruit_dashboard/core/widgets/custom_image_field.dart';
 import 'package:fruit_dashboard/core/widgets/custom_text_field.dart';
 import 'package:fruit_dashboard/core/widgets/show_error.dart';
-import 'package:fruit_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruit_dashboard/features/add_product/data/review_model.dart';
+import 'package:fruit_dashboard/features/add_product/domain/entities/product_entity.dart';
 
 import '../../cubit/add_product_cubit.dart';
 
@@ -141,7 +142,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if(image!=null){
                     if(_formKey.currentState!.validate()){
                       _formKey.currentState!.save();
-                      AddProductInputEntity input = AddProductInputEntity(
+                      ProductEntity input = ProductEntity(
                           name: name,
                           code: code,
                           description: description,
@@ -152,7 +153,15 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                           isOrganic: isOrganic,
                           numOfCalories: numOfCalories as int,
                           unitAmount: unitAmount as int,
-                          reviews: [],
+                          reviews: [
+                            ReviewModel(
+                              name: 'tharwat',
+                              imageProfile: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fbeautiful%2F&psig=AOvVaw19xjUBre0RXfV2IZ-cEAEV&ust=1726749821993000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCJ3L_CzIgDFQAAAAAdAAAAABAE',
+                              rating: 5,
+                              date: DateTime.now().toIso8601String(),
+                              reviewDescription: 'Nice product',
+                            ),
+                          ],
                       );
                       context.read<AddProductCubit>().addProduct(input);
                     }else{

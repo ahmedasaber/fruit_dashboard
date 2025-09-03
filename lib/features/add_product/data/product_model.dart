@@ -1,7 +1,7 @@
-import 'package:fruit_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruit_dashboard/features/add_product/domain/entities/product_entity.dart';
 
-class AddProductInputModel extends AddProductInputEntity {
-  AddProductInputModel({
+class ProductModel extends ProductEntity {
+  ProductModel({
     required super.name,
     required super.code,
     required super.description,
@@ -16,8 +16,8 @@ class AddProductInputModel extends AddProductInputEntity {
     required super.reviews,
   });
 
-  factory AddProductInputModel.fromEntity(AddProductInputEntity entity) {
-    return AddProductInputModel(
+  factory ProductModel.fromEntity(ProductEntity entity) {
+    return ProductModel(
       name: entity.name,
       code: entity.code,
       description: entity.description,
