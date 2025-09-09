@@ -1,6 +1,7 @@
 import 'package:fruit_dashboard/features/add_product/domain/entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
+  final int sellingCount;
   ProductModel({
     required super.name,
     required super.code,
@@ -14,6 +15,7 @@ class ProductModel extends ProductEntity {
     required super.unitAmount,
     required super.isOrganic,
     required super.reviews,
+    this.sellingCount = 0 ,
   });
 
   factory ProductModel.fromEntity(ProductEntity entity) {
@@ -37,6 +39,7 @@ class ProductModel extends ProductEntity {
     return {
       'name': name,
       'code': code,
+      'sellingCount': sellingCount,
       'description': description,
       'price': price,
       'isFeatured': isFeatured,
