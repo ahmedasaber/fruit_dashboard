@@ -6,6 +6,8 @@ import 'package:fruit_dashboard/core/services/database_service.dart';
 import 'package:fruit_dashboard/core/services/fire_store_service.dart';
 import 'package:fruit_dashboard/core/services/storage_service.dart';
 import 'package:fruit_dashboard/core/services/supastorage.dart';
+import 'package:fruit_dashboard/features/orders/data/repo/orders_repo_impl.dart';
+import 'package:fruit_dashboard/features/orders/domain/repo/orders_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -18,5 +20,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<ProductRepo>(
     ProductRepoImpl(databaseService: getIt<DatabaseService>()),
+  );
+  getIt.registerSingleton<OrdersRepo>(
+      OrdersRepoImpl(databaseService: getIt<DatabaseService>())
   );
 }
