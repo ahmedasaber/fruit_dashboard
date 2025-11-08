@@ -30,9 +30,13 @@ class OrderItemCard extends StatelessWidget {
                 children: [
                   Icon(Icons.tag, size: 14, color: Colors.grey.shade600),
                   const SizedBox(width: 8),
-                  Text(
-                    order.uld,
-                    style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                  Expanded(
+                    child: Text(
+                      order.orderId,
+                      style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
@@ -41,7 +45,7 @@ class OrderItemCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  buildStatusChip(order.status),
+                  buildStatusChip(context,order),
                   buildPaymentMethodChip(order.paymentMethod),
                 ],
               ),

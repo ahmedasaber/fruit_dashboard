@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_dashboard/core/services/get_it_service.dart';
 import 'package:fruit_dashboard/features/orders/domain/repo/orders_repo.dart';
 import 'package:fruit_dashboard/features/orders/presentation/cubit/orders_cubit.dart';
+import 'package:fruit_dashboard/features/orders/presentation/cubit/update%20order/update_order_cubit.dart';
 import 'package:fruit_dashboard/features/orders/presentation/views/widgets/orders_view_body.dart';
 
 class OrdersView extends StatelessWidget {
@@ -17,8 +18,17 @@ class OrdersView extends StatelessWidget {
         title: Text('Orders'),
         centerTitle: true,
       ),
-      body: BlocProvider(
-        create: (context) => OrdersCubit(getIt<OrdersRepo>())..getOrders(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+            OrdersCubit(getIt<OrdersRepo>())
+              ..getOrders(),
+          ),
+          BlocProvider(
+            create: (context) => UpdateOrderCubit(getIt<OrdersRepo>()),
+          ),
+        ],
         child: OrdersViewBody(),
       ),
     );
