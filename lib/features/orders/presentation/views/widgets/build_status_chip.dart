@@ -25,16 +25,16 @@ Widget buildStatusChip(BuildContext context, OrderEntity order) {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: status == statuses[0] ? Colors.orange.shade100
-            : status == statuses[1] ? Colors.green.shade100
+          color: status.toLowerCase() == statuses[0].toLowerCase() ? Colors.orange.shade100
+            : status.toLowerCase() == statuses[1].toLowerCase() ? Colors.green.shade100
             : Colors.red.shade100,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
           status,
           style: TextStyle(
-            color: status == statuses[0] ? Colors.orange.shade900
-              : status == statuses[1] ? Colors.green.shade900
+            color: status.toLowerCase() == statuses[0].toLowerCase() ? Colors.orange.shade900
+              : status.toLowerCase() == statuses[1].toLowerCase() ? Colors.green.shade900
               : Colors.red.shade900,
             fontWeight: FontWeight.w600,
             fontSize: 12,
