@@ -21,4 +21,14 @@ class OrdersRepoImpl extends OrdersRepo{
       yield left(ServerFailure('Failed to fetch orders -> $e'));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> updateOrderStatus({required String status , required String orderId}) async{
+    try {
+      databaseService.updateData(path: BackendEndpoints.updateOrder, data: {'status': status} , docId: orderId);
+      return right(null);
+    } catch (e) {
+      return left(ServerFailure('Failed to update orders -> $e'));
+    }
+  }
 }

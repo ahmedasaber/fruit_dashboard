@@ -124,6 +124,7 @@ class OrderDummyData {
     orderProducts: products1,
     paymentMethod: 'cash',
     status: 'pending',
+    orderId: '',
   );
 
   static OrderEntity order2 = OrderEntity(
@@ -133,6 +134,7 @@ class OrderDummyData {
     orderProducts: products2,
     paymentMethod: 'online',
     status: 'pending',
+    orderId: '',
   );
 
   static OrderEntity order3 = OrderEntity(
@@ -142,6 +144,7 @@ class OrderDummyData {
     orderProducts: products3,
     status: 'pending',
     paymentMethod: 'cash',
+    orderId: '',
   );
 
   static OrderEntity order4 = OrderEntity(
@@ -151,6 +154,7 @@ class OrderDummyData {
     orderProducts: products4,
     status: 'pending',
     paymentMethod: 'online',
+    orderId: '',
   );
 
   // List of all dummy orders

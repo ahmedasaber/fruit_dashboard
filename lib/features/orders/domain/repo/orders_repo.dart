@@ -4,4 +4,5 @@ import 'package:fruit_dashboard/features/orders/domain/entities/order_entity.dar
 
 abstract class OrdersRepo{
   Stream<Either<Failure,List<OrderEntity>>> fetchOrders();
+  Future<Either<Failure,void>> updateOrderStatus({required String status , required String orderId});
 }
