@@ -23,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textDirection: TextDirection.rtl,
       onSaved: onSaved,
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -34,8 +35,8 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: isObsecure,
       maxLines: maxLine,
       decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: TextStyles.bold13.copyWith(color: AppColors.hintTextColor),
+        labelText: hintText,
+        labelStyle: TextStyles.bold13.copyWith(color: AppColors.hintTextColor),
         suffixIcon: suffixIcon,
         filled: true,
         fillColor: Color(0xffF9FAFA),
