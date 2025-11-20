@@ -43,6 +43,7 @@ class ProductModel extends ProductEntity {
       'description': description,
       'price': price,
       'isFeatured': isFeatured,
+      'isFav': false,
       'imageUrl': imageUrl,
       'expirationsMonth': expirationsMonth,
       'isOrganic': isOrganic,
